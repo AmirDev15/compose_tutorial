@@ -202,26 +202,31 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-           // DropdownMenu()
+            // DropdownMenu()
+            Row(
+                modifier = Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
 
-Text(modifier = Modifier,
-    text = "welcome to githubed")
+            ) {
+                Box(
+                    modifier = Modifier
+                        .padding(top = 40.dp),
 
-            Text(text = "another changeed")
+
+                ) {
+                    Text(
+                        text = "welcome to github",
+                        fontSize = 34.sp,
+                        color = Color.Red,
+
+                    )
 
 
+                }
+            }
 
-Text(modifier = Modifier,
-    text = "welcome to github")
 
-            Text(text = "another change")
-
-println("Experiment")
-            println("import")
-
-            println("change from exp")
-
-            println("change frrom main")
         }
     }
 }
