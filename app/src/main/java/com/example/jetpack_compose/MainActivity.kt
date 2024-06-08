@@ -205,9 +205,9 @@ class MainActivity : ComponentActivity() {
            // DropdownMenu()
 
 Text(modifier = Modifier,
-    text = "welcome to github")
+    text = "welcome to githubed")
 
-            Text(text = "another change")
+            Text(text = "another changeed")
 
 
 
@@ -217,6 +217,7 @@ Text(modifier = Modifier,
             Text(text = "another change")
 
 println("Experiment")
+            println("import")
         }
     }
 }
