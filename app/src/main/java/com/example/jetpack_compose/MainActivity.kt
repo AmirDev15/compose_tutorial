@@ -203,26 +203,28 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             // DropdownMenu()
-            Row(
+            Column(
                 modifier = Modifier.fillMaxSize(),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
 
             ) {
                 Box(
-                    modifier = Modifier
-                        .padding(top = 40.dp),
-
-
+                ) {
+                    Text(
+                        text = "welcome to github",
+                        fontSize = 34.sp,
+                        color = Color.Black,
+                    )
+                }
+                Spacer(modifier = Modifier.height(20.dp))
+                Box(
                 ) {
                     Text(
                         text = "welcome to github",
                         fontSize = 34.sp,
                         color = Color.Red,
-
                     )
-
-
                 }
             }
 
