@@ -203,7 +203,10 @@ class MainActivity : ComponentActivity() {
         setContent {
 
            // DropdownMenu()
-Text(text = "welcome to github")
+Text(modifier = Modifier,
+    text = "welcome to github")
+
+
 
         }
     }
