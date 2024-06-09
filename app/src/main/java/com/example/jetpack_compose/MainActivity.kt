@@ -135,63 +135,6 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sin
 
-// create animated circuler progress
-//@Composable
-//fun AnimatedCircularProgress() {
-//    val progress = remember { Animatable(0f) }
-//    val process2= 1f
-//    val scope = rememberCoroutineScope()
-//
-//    LaunchedEffect(Unit) {
-//        scope.launch {
-//            progress.animateTo(
-//                targetValue = process2,
-//                animationSpec = tween(
-//                    durationMillis = 2000
-//                )
-//            )
-//        }
-//    }
-//
-//    Box(
-//        contentAlignment = androidx.compose.ui.Alignment.Center,
-//        modifier = Modifier.fillMaxSize()
-//    ) {
-//
-//
-//        Canvas(
-//            modifier = Modifier
-//                .size(200.dp)
-//        ) {
-//            drawArc(
-//                color = Color.Green,
-//                startAngle = -90f,
-//                sweepAngle = 150 * progress.value,
-//                useCenter = false,
-//                style = androidx.compose.ui.graphics.drawscope.Stroke(
-//                    width = 14.dp.toPx(),
-//                    cap = StrokeCap.Round
-//                )
-//            )
-//            val progressText = (progress.value * 100).toInt().toString()
-//            val textPaint = Paint().asFrameworkPaint().apply {
-//                isAntiAlias = true
-//                textSize = 30.sp.toPx()
-//                color = android.graphics.Color.BLACK
-//                textAlign = android.graphics.Paint.Align.CENTER
-//                typeface = android.graphics.Typeface.create("", android.graphics.Typeface.BOLD)
-//            }
-//
-//            drawContext.canvas.nativeCanvas.drawText(
-//                progressText,
-//                size.width / 2,
-//                size.height / 2 - (textPaint.ascent() + textPaint.descent()) / 2,
-//                textPaint
-//            )
-//        }
-//    }
-//}
-
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -200,6 +143,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
+            //calling all the composable functions
+
+
             // MainContent() //adding image card
             //github_text() //simple text
             //Drop_Down_Menu() //dropdown_menu
@@ -207,6 +153,7 @@ class MainActivity : ComponentActivity() {
             //maximiz_box_animated() //maximize box with a button
             // Retrive_data_Lazy_Column() //retrive the data according to size of screen
             //Snack_Bar() //how snacbars work when entering data on textfield
+            // AnimatedCircularProgress() // animated circuler progress
 
         }
     }
@@ -543,5 +490,60 @@ class MainActivity : ComponentActivity() {
 // }how snacbars work when entering data on textfield
 
 
-
-
+// {create animated circuler progress
+//@Composable
+//fun AnimatedCircularProgress() {
+//    val progress = remember { Animatable(0f) }
+//    val process2= 2f
+//    val scope = rememberCoroutineScope()
+//
+//    LaunchedEffect(Unit) {
+//        scope.launch {
+//            progress.animateTo(
+//                targetValue = process2,
+//                animationSpec = tween(
+//                    durationMillis = 2000
+//                )
+//            )
+//        }
+//    }
+//
+//    Box(
+//        contentAlignment = androidx.compose.ui.Alignment.Center,
+//        modifier = Modifier.fillMaxSize()
+//    ) {
+//
+//
+//        Canvas(
+//            modifier = Modifier
+//                .size(200.dp)
+//        ) {
+//            drawArc(
+//                color = Color.Green,
+//                startAngle = -90f,
+//                sweepAngle = 150 * progress.value,
+//                useCenter = false,
+//                style = androidx.compose.ui.graphics.drawscope.Stroke(
+//                    width = 14.dp.toPx(),
+//                    cap = StrokeCap.Round
+//                )
+//            )
+//            val progressText = (progress.value * 100).toInt().toString()
+//            val textPaint = Paint().asFrameworkPaint().apply {
+//                isAntiAlias = true
+//                textSize = 30.sp.toPx()
+//                color = android.graphics.Color.BLACK
+//                textAlign = android.graphics.Paint.Align.CENTER
+//                typeface = android.graphics.Typeface.create("", android.graphics.Typeface.BOLD)
+//            }
+//
+//            drawContext.canvas.nativeCanvas.drawText(
+//                progressText,
+//                size.width / 2,
+//                size.height / 2 - (textPaint.ascent() + textPaint.descent()) / 2,
+//                textPaint
+//            )
+//        }
+//    }
+//}
+// }create animated circuler progress
