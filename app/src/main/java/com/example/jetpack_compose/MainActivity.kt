@@ -97,16 +97,19 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.icons.Icons
-import androidx.compose.material3.Icon
+//import androidx.compose.material.Icon
+//import androidx.compose.material.icons.Icons
+//import androidx.compose.material3.Icon
 import androidx.compose.runtime.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.DropdownMenu
+import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.draw.drawBehind
@@ -122,6 +125,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 import androidx.compose.ui.input.pointer.pointerInput
+//import androidx.compose.ui.tooling.data.EmptyGroup.data
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlin.math.PI
@@ -194,114 +198,163 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-//       val FontFamily= FontFamily(
-//           Font(R.font.font_style)
-//       )
-
-
         setContent {
 
-            // DropdownMenu()
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-
-            ) {
-                Box(
-                ) {
-                    Text(
-                        text = "welcome to github",
-                        fontSize = 34.sp,
-                        color = Color.Black,
-                    )
-                }
-                Spacer(modifier = Modifier.height(20.dp))
-                Box(
-                ) {
-                    Text(
-                        text = "welcome to github",
-                        fontSize = 34.sp,
-                        color = Color.Red,
-                    )
-                }
-            }
-
+            // MainContent() //adding image card
+            //github_text() //simple text
+            //Drop_Down_Menu() //dropdown_menu
+            // TimerScreen()  //create timer
+            //maximiz_box_animated() //maximize box with a button
+            // Retrive_data_Lazy_Column() //retrive the data according to size of screen
+            //Snack_Bar() //how snacbars work when entering data on textfield
 
         }
     }
 }
+// DropdownMenu()
 
 
-// animated 3d drop down menu
+////{ adding image cards
 
+//data class ImageCard(
+//    val imageRes: Int,
+//    val title: String,
+//    val description: String,
+//)
 //
 //@Composable
-//fun DropdownMenu() {
-//    var isExpanded by remember { mutableStateOf(false) }
-//    val rotationAngle by animateFloatAsState(targetValue = if (isExpanded) 180f else 0f)
+//fun MainContent() {
+//    val imageCard = ImageCard(
+//        imageRes = R.drawable.dev, // Make sure this drawable exists in your res/drawable directory
+//        title = "Android Development",
+//        description = "Photo of Android dev "
+//    )
+//    ImageCard(imageCard = imageCard)
+//}
+//
+//@Composable
+//fun ImageCard(imageCard: ImageCard) {
+//    Card(
+//        shape = RoundedCornerShape(10.dp),
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .padding(20.dp)
+//            .padding(top = 20.dp)
+//    ) {
+//        Column(
+//            modifier = Modifier
+//                .padding(top = 20.dp)
+//                .padding(10.dp)
+//        ) {
+//            Image(
+//                painter = painterResource(id = imageCard.imageRes),
+//                contentDescription = null,
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .height(200.dp),
+//                contentScale = ContentScale.Crop
+//            )
+//            Spacer(modifier = Modifier.height(8.dp))
+//            Text(
+//                text = imageCard.title,
+//                fontSize = 16.sp,
+//                fontWeight = FontWeight.Bold
+//            )
+//            Spacer(modifier = Modifier.height(4.dp))
+//            Text(
+//                text = imageCard.description,
+//                fontSize = 14.sp
+//            )
+//        }
+//    }
+//}
+//} adding image cards
+
+//{ github text
+//@Composable
+//fun github_text() {
+//    Column(
+//        modifier = Modifier.fillMaxSize(),
+//        verticalArrangement = Arrangement.Center,
+//        horizontalAlignment = Alignment.CenterHorizontally
+//
+//    ) {
+//        Box(
+//        ) {
+//            Text(
+//                text = "welcome to github",
+//                fontSize = 34.sp,
+//                color = Color.Black,
+//            )
+//        }
+//        Spacer(modifier = Modifier.height(20.dp))
+//        Box(
+//        ) {
+//            Text(
+//                text = "welcome to github",
+//                fontSize = 34.sp,
+//                color = Color.Red,
+//            )
+//        }
+//    }
+//}
+
+//} github text
+
+
+// {  drop down menu
+//@Composable
+//fun Drop_Down_Menu() {
+//    var expanded by remember { mutableStateOf(false) }
+//    var selectedText by remember { mutableStateOf("") }
+//    val items = listOf("Option 1", "Option 2", "Option 3")
 //
 //    Column(
-//        modifier = Modifier
-//            .padding(16.dp)
-//            .fillMaxWidth()
+//        modifier = Modifier.fillMaxSize(),
+//        verticalArrangement = Arrangement.Top,
+//        horizontalAlignment = Alignment.Start
 //    ) {
 //        Row(
 //            modifier = Modifier
 //                .fillMaxWidth()
-//                .clickable { isExpanded = !isExpanded },
-//            horizontalArrangement = Arrangement.SpaceBetween,
-//            verticalAlignment = Alignment.CenterVertically
+//                .padding(top = 30.dp),
+//            verticalAlignment = Alignment.CenterVertically,
+//            horizontalArrangement = Arrangement.Center
 //        ) {
-//            Box(
-//                modifier = Modifier
-//                    .padding(8.dp)
-//            ) {
-//                Text(
-//                    text = "Hello",
-//                    fontSize = 20.sp,
-//                    color = Color.Black
-//                )
-//            }
-//            Box(
-//                modifier = Modifier
-//                    .padding(8.dp)
-//            ) {
-//                Icon(
-//                  //  imageVector = if (isExpanded) Icons.Filled.ArrowDropUp else Icons.Filled.ArrowDropDown,
-//                    contentDescription = "Dropdown Icon",
-//                    tint = Color.Black,
-//                    modifier = Modifier
-//                        .size(24.dp)
-//                        .graphicsLayer {
-//                            rotationZ = rotationAngle
+//            Box {
+//                Button(
+//                    onClick = { expanded = true }) {
+//                    Text(text = "select option")
+//                }
+//
+//
+//                DropdownMenu(
+//                    modifier = Modifier.align(Alignment.Center),
+//                    expanded = expanded,
+//                    onDismissRequest = { expanded = false }
+//                ) {
+//                    items.forEach { item ->
+//                        DropdownMenuItem(onClick = {
+//                            selectedText = item
+//                            expanded = false
+//                        }) {
+//                            Text(text = item)
 //                        }
-//                )
+//                    }
+//                }
 //            }
 //        }
-//        if (isExpanded) {
-//            Box(
-//                modifier = Modifier
-//                    .padding(top = 8.dp)
-//                    .height(200.dp)
-//                    .fillMaxWidth()
-//                    .background(Color.LightGray, RoundedCornerShape(8.dp)),
-//                contentAlignment = Alignment.Center
-//            ) {
-//                Text(
-//                    text = "Dropdown Content",
-//                    fontSize = 18.sp,
-//                    color = Color.Black
-//                )
-//            }
-//        }
+//
+//        Text(
+//            text = "Selected: $selectedText",
+//            modifier = Modifier.padding(16.dp)
+//        )
 //    }
 //}
-//
+//}drop down menu
 
 
-////create timer
+////{create timer
 
 //@Composable
 //fun TimerScreen() {
@@ -381,279 +434,114 @@ class MainActivity : ComponentActivity() {
 //        }
 //    }
 //}
-//            var size by remember {
-//                mutableStateOf(200.dp)
-//            }
-//            val animation by animateDpAsState(
-//                targetValue = size,
-//                tween(durationMillis = 1000 ,
-//                    delayMillis = 500
+// }create timer
+
+//{maximiz box with a button
+//@Composable
+//fun maximiz_box_animated(){
+//    var size by remember {
+//        mutableStateOf(200.dp)
+//    }
+//    val animation by animateDpAsState(
+//        targetValue = size,
+//        tween(durationMillis = 1000 ,
+//            delayMillis = 500
 //
-//                )
+//        )
+//    )
+//    Box(
+//        modifier = Modifier
+//            .size(animation)
+//            .background(Color.Red),
+//        Alignment.BottomEnd,
+//
+//        ) {
+//        Button(onClick = {
+//            size += 50.dp
+//        }) {
+//            Text(text = "click to maximize")
+//        }
+//
+//    }
+//}
+// }maximiz box with a button
+
+//{ retrive the data according to size of screen
+//@Composable
+//fun Retrive_data_Lazy_Column() {
+//LazyColumn {
+//    items(200) {
+//        Text(
+//            text = "item $it",
+//            fontSize = 25.sp,
+//            fontWeight = FontWeight.Bold,
+//            textAlign = TextAlign.Center,
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(vertical = 24.dp)
+//
+//
+//        )
+//    }
+//}
+//}
+
+//} retrive the data according to size of screen
+
+//{how snacbars work when entering data on textfield
+//@Composable
+//fun Snack_Bar() {
+//    val snackbarHostState = remember { SnackbarHostState() }
+//    var textfield by remember { mutableStateOf("") }
+//    val scope = rememberCoroutineScope()
+//
+//    Scaffold(
+//        modifier = Modifier.fillMaxSize(),
+//
+//        snackbarHost = {
+//            SnackbarHost(hostState = snackbarHostState)
+//        }
+//    ) {
+//        Column(
+//            verticalArrangement = Arrangement.Center,
+//            horizontalAlignment = Alignment.CenterHorizontally,
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .background(Color.Yellow)
+//                .padding(horizontal = 30.dp)
+//        ) {
+//            TextField(
+//                value = textfield,
+//                label = {
+//                    Text(text = "enter your data")
+//                },
+//                onValueChange = {
+//                    textfield = it
+//                },
+//                singleLine = true,
+//                modifier = Modifier.fillMaxWidth()
 //            )
-//            Box(
-//                modifier = Modifier
-//                    .size(animation)
-//                    .background(Color.Red),
-//                Alignment.BottomEnd,
-//
-//                ) {
-//                Button(onClick = {
-//                    size += 50.dp
-//                }) {
-//                    Text(text = "click to maximize")
+//            Spacer(modifier = Modifier.height(15.dp))
+//            Button(onClick = {
+//                scope.launch {
+//                    snackbarHostState.showSnackbar("hello $textfield")
 //                }
-//
+//            }) {
+//                Text(text = "welcome mr ")
 //            }
-
-//            val constraints = ConstraintSet {
-//                val greenbox = createRefFor("green_box")
-//                val redbox=createRefFor("red_box")
+//        }
 //
-//                constrain(greenbox){
-//                    top.linkTo(parent.top)
-//                    start.linkTo(parent.start)
-//                    width=Dimension.value(100.dp)
-//                    height=Dimension.value(100.dp)
-//
-//                }
-//
-//                constrain(redbox){
-//                    top.linkTo(parent.top)
-//                    start.linkTo(greenbox.end)
-//                    width=Dimension.value(100.dp)
-//                    height=Dimension.value(100.dp)
-//                }
-//
-//            }
-//            ConstraintLayout(constraints, modifier = Modifier.fillMaxSize()) {
-//
-//                Box(modifier = Modifier
-//                    .background(Color.Green)
-//                    .layoutId("green_box"))
-//
-//                Box(modifier = Modifier
-//                    .background(Color.Red)
-//                    .layoutId("red_box"))
-//            }
-//            LazyColumn {
-//                items(200) {
-//                    Text(
-//                        text = "item $it",
-//                        fontSize = 25.sp,
-//                        fontWeight = FontWeight.Bold,
-//                        textAlign = TextAlign.Center,
-//                        modifier = Modifier
-//                            .fillMaxWidth()
-//                            .padding(vertical = 24.dp)
-//
-//
-//                    )
-//                }
-//
-//            }
-
-
-//                    val snackbarHostState = remember { SnackbarHostState() }
-//                    var textfield by remember { mutableStateOf("") }
-//                    val scope = rememberCoroutineScope()
-//
-//                    Scaffold(
-//                        modifier = Modifier.fillMaxSize(),
-//
-//                        snackbarHost = {
-//                            SnackbarHost(hostState = snackbarHostState)
-//                        }
-//                    ) {
-//                        Column(
-//                            verticalArrangement = Arrangement.Center,
-//                            horizontalAlignment = Alignment.CenterHorizontally,
-//                            modifier = Modifier
-//                                .fillMaxSize()
-//                                .background(Color.Yellow)
-//                                .padding(horizontal = 30.dp)
-//                        ) {
-//                            TextField(
-//                                value = textfield,
-//                                label = {
-//                                    Text(text = "enter your data")
-//                                },
-//                                onValueChange = {
-//                                    textfield = it
-//                                },
-//                                singleLine = true,
-//                                modifier = Modifier.fillMaxWidth()
-//                            )
-//                            Spacer(modifier = Modifier.height(15.dp))
-//                            Button(onClick = {
-//                                scope.launch {
-//                                    snackbarHostState.showSnackbar("hello $textfield")
-//                                }
-//                            }) {
-//                                Text(text = "welcome mr ")
-//                            }
-//                        }
-//
-//            Box(modifier = Modifier
+//        Box(
+//            modifier = Modifier
 //                .padding(30.dp)
 //                .fillMaxWidth()
-//                .background(Color.Yellow))
-//
-//            {
-//                Text(
-//                    text = "welcome",
-//                    fontFamily = FontFamily,
-//                    fontWeight =FontWeight.Bold,
-//                    fontSize = 10.sp,
-//                    textAlign = TextAlign.End
-//
-//
-//                    )
-//
-//
-//            }
-
-
-//MainContent()
-//            Row (
-//                modifier = Modifier
-//                  //  .background(Color.Yellow)
-//                    //.padding(30.dp)
-//                    //.width(150.dp)
-//                    .fillMaxWidth()
-//                    .height(150.dp),
-//
-//                horizontalArrangement = Arrangement.SpaceEvenly,
-//               verticalAlignment =Alignment.CenterVertically
-//
-//
-//
-//            ){
-//                Text(text = "done" , modifier = Modifier
-//                    .background(Color.Blue)
-//                    .size(70.dp)
-//                    .width(200.dp)
-//                    .fillMaxWidth()
-//
-//                )
-//                Spacer(modifier = Modifier.width(30.dp).background(Color.Blue))
-//                Text(text = "done")
-//                Text(text = "done")
-//            }
-
-//fun ColorBox(modifier: Modifier = Modifier) {
-//    // Using mutableStateOf to hold a single color value
-//    var color by remember { mutableStateOf(Color.Red) }
-
-//@Composable
-//
-//fun color_box(modifier: Modifier=Modifier) {
-//    var seocnd_box by remember {
-//        mutableStateOf(Color.Blue)
-//    }
-//
-//    Column(modifier=Modifier) {
-//
-//        Box(modifier = modifier
-//
-//            .background(Color.Red)
-//            .clickable {
-//                seocnd_box = Color(
-//
-//                    Random.nextFloat(),
-//                    Random.nextFloat(),
-//                    Random.nextFloat(),
-//
-//                    )
-//            }
-//            .weight(1f)
+//                .background(Color.Yellow)
 //        )
-//
-//        Box(modifier = Modifier
-//            .fillMaxSize()
-//            .background(seocnd_box)
-//            .weight(1f)
-//
-//        )
-//
-//
 //    }
-//
 //}
 
-//// adding image cards
-//@Composable
-//fun ImageCard(imageCard: ImageCard) {
-//    Card(
-//        shape = RoundedCornerShape(20.dp),
-//
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .height(IntrinsicSize.Min)
-//
-//
-//            .padding(8.dp)
-//    ) {
-//        Column(modifier = Modifier.padding(8.dp)
-//            .fillMaxHeight(0.5f)
-//        ) {
-//            Image(
-//                painter = painterResource(id = imageCard.imageRes),
-//                contentDescription = null,
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//
-//                    .height(200.dp),
-//                contentScale = ContentScale.Crop
-//            )
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = imageCard.title,
-//                fontSize = 16.sp,
-//                fontWeight = FontWeight.Bold
-//            )
-//            Spacer(modifier = Modifier.height(4.dp))
-//            Text(
-//                text = imageCard.description,
-//                fontSize = 14.sp
-//            )
-//        }
-//    }
-//}
-//
-//@Composable
-//fun MainContent() {
-//    val imageCard = ImageCard(
-//        imageRes = R.drawable.rasm,
-//        title = "desktop image",
-//        description = "photo of my mac laptop"
-//    )
-//    MaterialTheme {
-//        Surface(modifier = Modifier.fillMaxSize()) {
-//            ImageCard(imageCard = imageCard)
-//        }
-//    }
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun PreviewMainContent() {
-//
-//    MainContent()
-//}
+// }how snacbars work when entering data on textfield
 
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    Text(
-//        text = "Hello $name!",
-//        modifier = modifier
-//    )
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    Jetpack_composeTheme {
-//        Greeting("Android")
-//    }
-//}
+
+
+
