@@ -11,7 +11,7 @@ It showcases various fundamental concepts and components of Jetpack Compose, dem
 * **Layouts:** Explores different layout techniques and composables like `Column`, `Row`, and `Box`.
 * **State Management:** Shows how to manage UI state and update the UI reactively.
 * **Material Design:** Implements Material Design components and styling.
-* **Navigation:** (I will add it soon) Demonstrates navigation between different screens using Jetpack Compose Navigation.
+* **Navigation:** Demonstrates navigation between different screens using Jetpack Compose Navigation.
 
 ## Technologies Used
 
