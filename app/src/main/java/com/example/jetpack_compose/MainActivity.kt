@@ -104,6 +104,7 @@ import androidx.compose.runtime.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
@@ -137,12 +138,17 @@ import kotlin.math.min
 import kotlin.math.sin
 
 
+
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
+
+
+
 //{navigating to different pages using navigation component Icons
 //            val navController = rememberNavController()
 //            Scaffold(
@@ -152,8 +158,8 @@ class MainActivity : ComponentActivity() {
 //            }
             //calling all the composable functions
             //
-
-            //Navigation() //navigating from one screen to other , and passing data to another screen
+           // MultiSelectNumberColumn()  // multiselect number column
+          //  Navigation() //navigating from one screen to other , and passing data to another screen
             // MainContent() //adding image card
             //github_text() //simple text
             //Drop_Down_Menu() //dropdown_menu
@@ -166,7 +172,67 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-// DropdownMenu()
+
+//{ multiselect number column
+
+//
+//data class Item(val id: Int, val text: String)
+//
+//@Composable
+//fun MultiSelectNumberColumn() {
+//    val items = remember {
+//        mutableStateListOf<Item>() // Specify the correct type explicitly
+//    }
+//    val selectedItems = remember { mutableStateListOf<Int>() }
+//
+//    // Generate numbers from 1 to 10
+//    for (i in 1..17) {
+//        items.add(Item(i, i.toString())) // Adding numbers with string representation
+//    }
+//
+//    Column {
+//        LazyColumn(
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .weight(1f)
+//        ) {
+//            items(items) { item ->
+//                Row(
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(16.dp)
+//                        .background(if (selectedItems.contains(item.id)) Color.LightGray else Color.Transparent)
+//                        .clickable {
+//                            if (selectedItems.contains(item.id)) {
+//                                selectedItems.remove(item.id)
+//                            } else {
+//                                selectedItems.add(item.id)
+//                            }
+//                        },
+//                    verticalAlignment = Alignment.CenterVertically,
+//                    horizontalArrangement = Arrangement.SpaceBetween
+//                ) {
+//
+//                    Text(
+//                        text = item.text,
+//                        color = Color.Red
+//
+//                    )
+//
+//                }
+//            }
+//        }
+
+        // Display selected items (optional)
+//        Text(
+//            text = "Selected Items: ${selectedItems.joinToString()}",
+//            modifier = Modifier.padding(16.dp)
+//        )
+//    }
+//}
+
+//} multiselect number column
+
 
 
 ////{ adding image cards
