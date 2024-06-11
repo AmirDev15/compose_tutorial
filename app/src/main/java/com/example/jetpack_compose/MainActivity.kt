@@ -149,6 +149,7 @@ class MainActivity : ComponentActivity() {
 
 
 
+
 //{navigating to different pages using navigation component Icons
 //            val navController = rememberNavController()
 //            Scaffold(
