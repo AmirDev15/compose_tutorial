@@ -127,6 +127,7 @@ import kotlin.math.sin
 import androidx.compose.ui.input.pointer.pointerInput
 //import androidx.compose.ui.tooling.data.EmptyGroup.data
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.delay
 import kotlin.math.PI
 import kotlin.math.atan2
@@ -142,10 +143,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
+//{navigating to different pages using navigation component Icons
+//            val navController = rememberNavController()
+//            Scaffold(
+//                bottomBar = { BottomNavigationBar(navController) }
+//            ) {
+//                NavGraph(navController = navController)
+//            }
             //calling all the composable functions
+            //
 
-
+            //Navigation() //navigating from one screen to other , and passing data to another screen
             // MainContent() //adding image card
             //github_text() //simple text
             //Drop_Down_Menu() //dropdown_menu
