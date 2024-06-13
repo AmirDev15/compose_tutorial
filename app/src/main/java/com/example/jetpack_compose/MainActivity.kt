@@ -16,6 +16,7 @@ import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.core.Animatable
@@ -136,18 +137,59 @@ import kotlin.math.cos
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sin
-
+import android.Manifest
+import android.app.Activity
+import android.content.Context
+import android.content.pm.PackageManager
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.remember
+import androidx.core.content.ContextCompat
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.app.ActivityCompat
 
 
 class MainActivity : ComponentActivity() {
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
 
 
-
+        }
+    }
+}
+//{ embeded compose in xml code. should be run in mainactivity .
+//        setContentView(R.layout.compose_on_xml)
+//        var textFromXml by mutableStateOf("") // No 'remember' here
+//
+//        val xmlTextField = findViewById<EditText>(R.id.xmlTextField)
+//        xmlTextField.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//                textFromXml = s.toString()
+//            }
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//        })
+//
+//        val composeView = findViewById<ComposeView>(R.id.compose_view)
+//        composeView.setContent {
+//            MaterialTheme {
+//                ComposeTextFieldSection(textFromXml) { newText ->
+//                    textFromXml = newText // Update textFromXml when Compose TextField changes
+//                }
+//            }
+//        }
+//} embeded compose in xml code.
 
 
 //{navigating to different pages using navigation component Icons
@@ -157,22 +199,20 @@ class MainActivity : ComponentActivity() {
 //            ) {
 //                NavGraph(navController = navController)
 //            }
-            //calling all the composable functions
-            //
-           // MultiSelectNumberColumn()  // multiselect number column
-          //  Navigation() //navigating from one screen to other , and passing data to another screen
-            // MainContent() //adding image card
-            //github_text() //simple text
-            //Drop_Down_Menu() //dropdown_menu
-            // TimerScreen()  //create timer
-            //maximiz_box_animated() //maximize box with a button
-            // Retrive_data_Lazy_Column() //retrive the data according to size of screen
-            //Snack_Bar() //how snacbars work when entering data on textfield
-            // AnimatedCircularProgress() // animated circuler progress
+//calling all the composable functions
+//
+// MultiSelectNumberColumn()  // multiselect number column
+//  Navigation() //navigating from one screen to other , and passing data to another screen
+// MainContent() //adding image card
+//github_text() //simple text
+//Drop_Down_Menu() //dropdown_menu
+// TimerScreen()  //create timer
+//maximiz_box_animated() //maximize box with a button
+// Retrive_data_Lazy_Column() //retrive the data according to size of screen
+//Snack_Bar() //how snacbars work when entering data on textfield
+// AnimatedCircularProgress() // animated circuler progress
 
-        }
-    }
-}
+
 //
 //{ multiselect number column
 
@@ -224,7 +264,7 @@ class MainActivity : ComponentActivity() {
 //            }
 //        }
 
-        // Display selected items (optional)
+// Display selected items (optional)
 //        Text(
 //            text = "Selected Items: ${selectedItems.joinToString()}",
 //            modifier = Modifier.padding(16.dp)
@@ -233,7 +273,6 @@ class MainActivity : ComponentActivity() {
 //}
 
 //} multiselect number column
-
 
 
 ////{ adding image cards
