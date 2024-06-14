@@ -150,6 +150,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.remember
 import androidx.core.content.ContextCompat
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.BottomSheetState
 import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
@@ -168,72 +171,80 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            // Step 1: Remember the state of the bottom sheet
-            val sheetState = rememberBottomSheetState(
-                initialValue = BottomSheetValue.Collapsed
-            )
-            val scaffoldState = rememberBottomSheetScaffoldState(
-                bottomSheetState = sheetState
-            )
-
-            // Step 2: Remember coroutine scope to manage state transitions
-            val scope = rememberCoroutineScope()
-
-            // Step 3: Compose UI using BottomSheetScaffold
-            BottomSheetScaffold(
-                scaffoldState = scaffoldState,
-                sheetContent = {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(Color.Green)
-                            .height(300.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "Toggle Sheet",
-                            fontSize = 60.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    }
-                },
-                // Step 4: Main content of the scaffold
-                content = {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Button(onClick = {
-                            // Step 5: Toggle bottom sheet state
-                            scope.launch {
-                                if (sheetState.isCollapsed) {
-                                    sheetState.expand()
-                                } else {
-                                    sheetState.collapse()
-                                }
-                            }
-                        }) {
-                            Text(text = "Toggle Sheet")
-                        }
-                    }
-                }
-            )
+            //MyGridScreen()  //lazy vertical grid example
+        // {navigating to different pages using navigation component Icons
+//            val navController = rememberNavController()
+//            Scaffold(
+//                bottomBar = { BottomNavigationBar(navController) }
+//            ) {
+//                NavGraph(navController = navController)
+//            }
+//calling all the composable functions
+//
+// MultiSelectNumberColumn()  // multiselect number column
+//  Navigation() //navigating from one screen to other , and passing data to another screen
+// MainContent() //adding image card
+//github_text() //simple text
+//Drop_Down_Menu() //dropdown_menu
+// TimerScreen()  //create timer
+//maximiz_box_animated() //maximize box with a button
+// Retrive_data_Lazy_Column() //retrive the data according to size of screen
+//Snack_Bar() //how snacbars work when entering data on textfield
+// AnimatedCircularProgress() // animated circuler progress
         }
 
     }
 
-
-
-
 }
-private fun BottomSheetScaffold(scaffoldState: Unit, sheetContent: @Composable ColumnScope.() -> Unit, content: @Composable (PaddingValues) -> Unit) {
 
-}
-@OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
-private fun rememberBottomSheetScaffoldState(bottomSheetState: BottomSheetState) {
 
-}
+//{LazyVerticalGrid Example
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun MyGridScreen() {
+//    val itemsList = (1..15).map { "Item $it" }
+//
+//    Scaffold(
+//        topBar = {
+//            TopAppBar(
+//                title = { Text("LazyVerticalGrid Example") }
+//            )
+//        },
+//        content = { padding ->
+//            LazyVerticalGrid(
+//                columns = GridCells.Fixed( 3), // Set the number of columns
+//                modifier = Modifier
+//                    .padding(padding)
+//                    .fillMaxSize()
+//            ) {
+//                items(itemsList) { item ->
+//                    GridItem(item)
+//                }
+//            }
+//        }
+//    )
+//}
+//
+//@Composable
+//fun GridItem(item: String) {
+//    Box(
+//        modifier = Modifier
+//            .padding(8.dp)
+//            .fillMaxWidth()
+//            .aspectRatio(1f)
+//            .background(Color.Green),
+//        contentAlignment = Alignment.Center
+//    ) {
+//        Text(
+//            text = item,
+//            fontSize = 18.sp,
+//            color = Color.Black
+//        )
+//    }
+//}
+//}LazyVerticalGrid Example
+
+
 //{ embeded compose in xml code. should be run in mainactivity .
 //        setContentView(R.layout.compose_on_xml)
 //        var textFromXml by mutableStateOf("") // No 'remember' here
@@ -257,27 +268,6 @@ private fun rememberBottomSheetScaffoldState(bottomSheetState: BottomSheetState)
 //            }
 //        }
 //} embeded compose in xml code.
-
-
-//{navigating to different pages using navigation component Icons
-//            val navController = rememberNavController()
-//            Scaffold(
-//                bottomBar = { BottomNavigationBar(navController) }
-//            ) {
-//                NavGraph(navController = navController)
-//            }
-//calling all the composable functions
-//
-// MultiSelectNumberColumn()  // multiselect number column
-//  Navigation() //navigating from one screen to other , and passing data to another screen
-// MainContent() //adding image card
-//github_text() //simple text
-//Drop_Down_Menu() //dropdown_menu
-// TimerScreen()  //create timer
-//maximiz_box_animated() //maximize box with a button
-// Retrive_data_Lazy_Column() //retrive the data according to size of screen
-//Snack_Bar() //how snacbars work when entering data on textfield
-// AnimatedCircularProgress() // animated circuler progress
 
 
 //
