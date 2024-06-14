@@ -150,6 +150,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.remember
 import androidx.core.content.ContextCompat
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.material.BottomSheetState
+import androidx.compose.material.BottomSheetValue
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.rememberBottomSheetState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
@@ -157,15 +161,78 @@ import androidx.core.app.ActivityCompat
 
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
+            // Step 1: Remember the state of the bottom sheet
+            val sheetState = rememberBottomSheetState(
+                initialValue = BottomSheetValue.Collapsed
+            )
+            val scaffoldState = rememberBottomSheetScaffoldState(
+                bottomSheetState = sheetState
+            )
 
+            // Step 2: Remember coroutine scope to manage state transitions
+            val scope = rememberCoroutineScope()
 
+            // Step 3: Compose UI using BottomSheetScaffold
+            BottomSheetScaffold(
+                scaffoldState = scaffoldState,
+                sheetContent = {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.Green)
+                            .height(300.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Toggle Sheet",
+                            fontSize = 60.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                    }
+                },
+                // Step 4: Main content of the scaffold
+                content = {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Button(onClick = {
+                            // Step 5: Toggle bottom sheet state
+                            scope.launch {
+                                if (sheetState.isCollapsed) {
+                                    sheetState.expand()
+                                } else {
+                                    sheetState.collapse()
+                                }
+                            }
+                        }) {
+                            Text(text = "Toggle Sheet")
+                        }
+                    }
+                }
+            )
         }
+
     }
+
+
+
+
+}
+private fun BottomSheetScaffold(scaffoldState: Unit, sheetContent: @Composable ColumnScope.() -> Unit, content: @Composable (PaddingValues) -> Unit) {
+
+}
+@OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
+private fun rememberBottomSheetScaffoldState(bottomSheetState: BottomSheetState) {
+
 }
 //{ embeded compose in xml code. should be run in mainactivity .
 //        setContentView(R.layout.compose_on_xml)
