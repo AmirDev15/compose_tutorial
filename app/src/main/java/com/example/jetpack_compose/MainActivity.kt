@@ -173,6 +173,7 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             println("welcome")
+            println("kk")
             //MyGridScreen()  //lazy vertical grid example
         // {navigating to different pages using navigation component Icons
 //            val navController = rememberNavController()
