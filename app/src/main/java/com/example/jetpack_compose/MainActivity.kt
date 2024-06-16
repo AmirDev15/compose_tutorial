@@ -171,6 +171,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
+
+            println("welcome")
             //MyGridScreen()  //lazy vertical grid example
         // {navigating to different pages using navigation component Icons
 //            val navController = rememberNavController()
